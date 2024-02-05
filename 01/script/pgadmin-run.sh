@@ -1,0 +1,1 @@
+docker build -t pgadmin4-alpine:5.7 -f Dockerfile-pgadmin .

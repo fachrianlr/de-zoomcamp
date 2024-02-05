@@ -1,0 +1,18 @@
+# Use a base image
+FROM python:3.9
+
+# Install library
+RUN pip install pandas sqlalchemy psycopg2-binary
+
+
+# Set the working directory inside the container
+WORKDIR /app
+
+COPY ./ingest.py ./ingest.py
+COPY ./config.ini ./config.ini
+COPY ./data/green_trip_data.csv ./green_trip_data.csv
+COPY ./data/taxi_zone_lookup.csv ./taxi_zone_lookup.csv
+
+
+# Define the command to run when the container starts
+CMD ["python", "ingest.py"]

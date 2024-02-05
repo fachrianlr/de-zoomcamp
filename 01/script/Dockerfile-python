@@ -1,0 +1,21 @@
+FROM python:3.9.1-alpine
+
+
+# Install system dependencies
+RUN apk --no-cache add \
+    musl-dev \
+    gcc \
+    libc-dev
+
+# Upgrade pip and setuptools
+RUN pip install --upgrade pip setuptools
+
+# Install pandas and numpy
+RUN pip install --no-cache-dir numpy pandas
+
+WORKDIR /opt/zoomcamp/01
+COPY pipeline.py pipeline.py
+
+#Set the entry point
+ENTRYPOINT [ "python", "pipeline.py" ]
+

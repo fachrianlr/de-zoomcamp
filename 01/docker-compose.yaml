@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: postgres-zoomcamp
+    environment:
+      POSTGRES_USER: "zoomcamp"
+      POSTGRES_PASSWORD: "zoomcamp"
+      POSTGRES_DB: "ny_taxi"
+    ports:
+      - "5432:5432"
+    volumes:
+      - "./postgres_data:/var/lib/postgresql/data:rw"
+    networks:
+      - zoomcamp
+
+
+  pgadmin:
+    image: dpage/pgadmin4:8.2
+    container_name: pgadmin-zoomcamp
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "zoomcamp@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "zoomcamp"
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    volumes:
+      - pgadmin-zoomcamp-data:/var/lib/pgadmin
+    networks:
+      - zoomcamp
+
+networks:
+  zoomcamp:
+    driver: bridge
+
+volumes:
+  postgres-zoomcamp-data:
+  pgadmin-zoomcamp-data:

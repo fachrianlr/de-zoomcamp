@@ -1,0 +1,12 @@
+# Use the official PgAdmin base image with Alpine Linux and version 5.7
+FROM dpage/pgadmin4:5.7
+
+# Set environment variables for PgAdmin configuration
+ENV PGADMIN_DEFAULT_EMAIL=user@example.com
+ENV PGADMIN_DEFAULT_PASSWORD=admin_password
+
+# Expose the port on which PgAdmin will run
+EXPOSE 5050
+
+# Start PgAdmin when the container starts
+CMD ["/entrypoint.sh"]

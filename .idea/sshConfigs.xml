@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="mygcp" id="be3ab1f5-4827-4338-b5bc-5e9a73cd1288" keyPath="\\wsl.localhost\Ubuntu-22.04\home\rian\.ssh\id_rsa" port="22" nameFormat="DESCRIPTIVE" username="rian" useOpenSSHConfig="true" />
+      <sshConfig authType="PASSWORD" host="mydev" id="ab55f553-33ee-4b78-9a97-51970a0858c4" port="22" nameFormat="DESCRIPTIVE" username="dev" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>
